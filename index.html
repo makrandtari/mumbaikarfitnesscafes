@@ -77,6 +77,15 @@
     margin-top: 0 !important;
 
   }
+  .mk1{
+    margin-left: 17%;
+  }
+  @media only screen and (min-width: 600px) {
+    .mk1{
+    margin-left:0!important;
+  }
+    }
+
 </style>
 
 <body>
@@ -84,7 +93,7 @@
   <div id="example-table">
     <div class="container">
       <div class="mk" style="border: 2px solid;color: #000;">
-        <div class="col-md-8 mt-5" style="margin-left: 17%;">
+        <div class="col-md-8 mt-5 mk1" >
           <b><span style="float:right;">Mob : 9892924203</span></b>
           <center>
             <img src="logo.jpg" class="center-block w-50">
@@ -148,7 +157,7 @@
           <h3></h3>
         </div>
 
-        <div class="col-md-8" style="margin-left: 17%;">
+        <div class="col-md-8 mk1" >
           <center>
             <h4>GYM + Functional +
               Powerlifting Training Membership</h4>
@@ -207,12 +216,12 @@
    </div>
 
       </div>
-      <center><button type="button" id="d1-pdf" class="btn btn-outline-success mt-5">Download</button></center>
-      <br>
+ 
     </div>
 
   </div>
-      
+           <center><button type="button" id="d1-pdf" class="btn btn-outline-success mt-5">Download</button></center>
+     
   <script src="html2pdf.bundle.min.js"></script>
   <script type="text/javascript">
     document.getElementById('d1-pdf').onclick = function () {
