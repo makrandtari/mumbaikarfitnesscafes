@@ -20,10 +20,11 @@
 </head>
 
 <style>
-  *{
-    margin:0px;
-    padding:0px;
+  * {
+    margin: 0px;
+    padding: 0px;
   }
+
   table {
     width: 100%;
   }
@@ -81,20 +82,19 @@
     margin-top: 0 !important;
 
   }
- 
- @media only screen and (min-width: 360px){
-    .mk1{
-    margin-left:0!important;
-  }
-    }
 
+  @media only screen and (min-width: 360px) {
+    .mk1 {
+      margin-left: 0 !important;
+    }
+  }
 </style>
 
 <body>
 
   <div id="example-table">
     <div class="container">
-     
+
       <div class="mk" style="border: 2px solid;color: #000;">
         <div class="col-md-auto mt-5">
           <b><span style="float:right;">Mob : 9892924203</span></b>
@@ -219,22 +219,38 @@
 
           </table>
           <b><span style="font-size:18px;" id="input" contenteditable="true">* Cardio Monthly Fees ₹500</span></b>
-          <div class="shadow p-1 mt-2 mb-5 bg-white rounded table-bordered" style="font-family: sans-serif;
+          <div class="shadow p-1 mt-2 mb-4 bg-white rounded table-bordered" style="font-family: sans-serif;
     text-align:center;
     font-size: 18px;
     border:1px solid #000; ;"><b>A/3 Building Near Ganesh Mandhir, Mankhurd (E), Mumbai 400088.</b></div>
-   </div>
+        </div>
 
       </div>
- 
+
     </div>
-</div>
-  
-           <center><button type="button" id="d1-pdf" class="btn btn-outline-success mt-5">Download</button></center>
-     
+
+  </div>
+  <center>
+    <p> <span id="countdowntimer"></span>
+      <br>
+      <button type="button" id="d1-pdf" class="btn btn-outline-success time mt-1">Download</button>
+  </center>
+  </p>
+
   <script src="html2pdf.bundle.min.js"></script>
   <script type="text/javascript">
     document.getElementById('d1-pdf').onclick = function () {
+      document.getElementById("countdowntimer").innerHTML = "<b>The pdf file downloaded in 5sec</b>";
+      var timeleft = 5;
+      var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+          clearInterval(downloadTimer);
+          document.getElementById("countdowntimer").innerHTML = "Finished";
+        } else {
+          document.getElementById("countdowntimer").innerHTML = timeleft + " seconds remaining";
+        }
+        timeleft -= 1;
+      }, 1000);
       var element = document.getElementById('example-table');
       var opt = {
 
@@ -246,6 +262,7 @@
         jsPDF: { format: 'letter', orientation: 'portrait' }
       };
       html2pdf(element, opt);
+
     };
     var storedItem = localStorage.getItem("input");
     function save() {
@@ -271,7 +288,10 @@
     //             document.getElementById('togglee').style.visibility = 'visible';
     //         }
     //     }
+
+
   </script>
+
 
 
 
